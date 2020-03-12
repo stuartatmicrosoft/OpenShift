@@ -11,3 +11,4 @@ openssl x509 -outform der -in cert.pem -out cert.crt
 Follow the instructions here:
 
 https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html
+
