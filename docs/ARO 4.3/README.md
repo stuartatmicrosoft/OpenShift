@@ -67,8 +67,12 @@ az aro show -n $CLUSTER -g $RESOURCEGROUP -o tsv --query consoleProfile.url
 ## Next Steps
 
 - [Configure DNS Forwarding](DNSForwarding.md)
+- [Use custom certificate](....md) 
 - [AAD Integration](AADIntegration.md)
 - [Limit Project Creation](LimitSelfProvisioning.md)
+- [Configure Azure Monitor](AzureMonitor.md)
+- Research [Key Vault integration](https://github.com/Azure/kubernetes-keyvault-flexvol)
+- (Only during preview) Coanfigure Pull Secret for Registry
 
 ## Code of conduct
 
