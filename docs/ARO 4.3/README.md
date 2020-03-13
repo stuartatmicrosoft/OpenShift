@@ -6,7 +6,7 @@ This document will walk you thorugh the steps to deploy a fully private Azure Re
 
 - Bring your own private Azure VNET
 - Private API Server
-- Private Router
+- Private Router (ingress controller)
 - Custom DNS forarded to on-premises DNS Server
 - Azure Active Directory Integration
 - Restricted User Access and RBAC for project creation
@@ -33,7 +33,7 @@ az aro create \
 ```
 
 ### Custom DNS
-If you choose to specify a custom domain, the openshift console will be available at a URL such as `https://console-openshift-console.apps.aro.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`
+If you choose to specify a custom domain, the openshift console will be available at a URL such as `https://console-openshift-console.apps.aro.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
 By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) and [custom CA for your API server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).  
 
@@ -71,14 +71,12 @@ az aro show -n $CLUSTER -g $RESOURCEGROUP -o tsv --query consoleProfile.url
 
 - [AAD Integration](AADIntegration.md)
 - [Limit Project Creation](LimitSelfProvisioning.md)
-- [Configure Azure Monitor](AzureMonitor.md)
 - [Configure DNS Forwarding](DNSForwarding.md)
+- [Configure Azure Monitor](AzureMonitor.md)
+
+### TODO:
 - Research [Key Vault integration](https://github.com/Azure/kubernetes-keyvault-flexvol)
 - (Only during preview) Coanfigure Pull Secret for Registry
-
-TODO:
-- Custom DNS registration for the cluster API
-- Registering SSL certificates for Custom DNS
 - **Known Issue:** You must setup [Pull Secret](https://blog.openshift.com/building-rhel-based-containers-on-azure-red-hat-openshift/) in order to use the Red Hat container catalog
 - **Known Issue:** AAD Pod Identity is not currently working.
 

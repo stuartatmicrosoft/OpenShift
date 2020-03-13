@@ -35,9 +35,14 @@ Click on the "Authentication" tab and enter the Redirect URI returned from the c
  
  ### Restricting Users
  
-**OPTIONAL** If you want to restrict ONLY certain users or AD GROUPS to be able to login to your cluster, check "User assignment required" and add those users/groups.  The complete documentation on how to configure this is here: https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users
- 
-  
+**OPTIONAL** If you want to restrict ONLY certain users or AD GROUPS to be able to login to your cluster, check **User assignment required**, then add desired users/groups.  
+
+![User Assignment Required](img/UserAssignmentRequired.jpg) 
+
+![Enterprise App Users](img/EnterpriseAppUsers.jpg) 
+
+The complete documentation on how to configure this is [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users).
+
 ### Configure OpenID
  
 In ARO 4.3 you will need to configure an OpenID Connect provider for Azure Active Directory.
@@ -69,4 +74,6 @@ az aro show -n $CLUSTER -g $RESOURCEGROUP -o tsv --query consoleProfile.url
    
 9. Set name to `family_name` (Ideally this should be both “given_name family_name” however I am not sure if you put two values if they are concatenated together. This example will only insert the user’s last name). Set email to `email` and choose add.
  
-You should now be able to login with AAD credentials.
+![Family Name](img/familyname.jpg)  
+
+**You should now be able to login with AAD credentials.**
