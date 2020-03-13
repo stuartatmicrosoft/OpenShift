@@ -12,3 +12,6 @@ Follow the instructions here:
 
 https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html
 
+Now do the same for the API Server:
+
+https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html
